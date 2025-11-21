@@ -47,89 +47,115 @@ simple-web-server/
 │   └── main/
 │       ├── java/
 │       │   └── com.example.demo/
-│       │       ├── DemoApplication.java
-│       │       └── HelloController.java
+│       │       ├── Exp1Application.java
+│       │       └── IndexController.java
 │       └── resources/
 │           └── application.properties
 ├── pom.xml
 
  ### Pom.xml
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>4.0.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>Exp1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Exp1</name>
+	<description>Java Spring Boot First Experiment</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>25</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc</artifactId>
+		</dependency>
 
-    <groupId>com.example</groupId>
-    <artifactId>simple-web-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>Simple Web Server</name>
-    <description>Demo project for Spring Boot Web Server</description>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webmvc-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.2</version>
-        <relativePath/>
-    </parent>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
-    <dependencies>
-        <!-- Spring Boot Web -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 </project>
+
 
 ### DemoApplication.java
 
-package com.example.demo;
+package com.Exp1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
-    }
+public class Exp1Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Exp1Application.class, args);
+	}
+
 }
 
 
 ### HelloController.java
-package com.example.demo;
+
+package com.Exp1.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HelloController {
-
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello, Spring Boot!";
+public class IndexController {
+    @GetMapping("/")
+    public String HelloWorld()
+    {
+        return "HelloWorld";
     }
 }
 
 
+
 ### application.properties:
 
- server.port=8081
+ server.port=8080
+ spring.application.name=Exp1
 
 
 
 
 Output:
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/62d53ba6-081f-453f-b1f5-f6660fade1ea" />
 
 
